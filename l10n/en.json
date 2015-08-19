@@ -1,0 +1,20 @@
+{
+    "label.date.from": "Start date",
+    "label.date.to": "Eind date",
+    "label.date.to.description": "This field may be empty if the start\u2013 and enddate are the same.",
+    "label.day.friday": "Friday",
+    "label.day.monday": "Monday",
+    "label.day.saturday": "Saturday",
+    "label.day.sunday": "Sunday",
+    "label.day.thursday": "Thursday",
+    "label.day.tuesday": "Tuesday",
+    "label.day.wednesday": "Wednesday",
+    "label.holidays": "Holidays",
+    "label.none": " ",
+    "label.openingHours": "Openinghours",
+    "label.openingSchedule": "Schedule",
+    "label.optional": "Optional",
+    "label.time.from": "Begin time",
+    "label.time.to": "End time",
+    "label.weekday": "Day"
+}

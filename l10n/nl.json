@@ -1,0 +1,20 @@
+{
+    "label.date.from": "Start datum",
+    "label.date.to": "Eind datum",
+    "label.date.to.description": "Dit veld mag leeg zijn indien de begin\u2013 en einddatum dezelfde is.",
+    "label.day.friday": "Vrijdag",
+    "label.day.monday": "Maandag",
+    "label.day.saturday": "Zaterdag",
+    "label.day.sunday": "Zondag",
+    "label.day.thursday": "Donderdag",
+    "label.day.tuesday": "Dinsdag",
+    "label.day.wednesday": "Woensdag",
+    "label.holidays": "Vakantiedagen",
+    "label.none": " ",
+    "label.openingHours": "Openingsuren",
+    "label.openingSchedule": "Planning",
+    "label.optional": "Optioneel",
+    "label.time.from": "Begin tijdstip",
+    "label.time.to": "Eind tijdstip",
+    "label.weekday": "Dag"
+}

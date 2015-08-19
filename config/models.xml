@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<models>
+
+    <model name="OpeningSchedule" entryClass="ride\app\orm\openingschedule\entry\OpeningScheduleEntry">
+        <field name="isEnabled" type="boolean" default="1">
+            <option name="label.name" value="label.none"/>
+            <option name="label.description" value="label.enabled"/>
+        </field>
+
+        <field name="openingHours" model="OpeningHour" relation="hasMany" relationOrder="{openingHour.weekday} ASC, {openingHour.from} ASC">
+            <option name="scaffold.form.type" value="collection"/>
+            <option name="label.name" value="label.openingHours"/>
+        </field>
+
+        <field name="holidays" model="Holiday" relation="hasMany" relationOrder="{holiday.from} ASC">
+            <option name="scaffold.form.type" value="collection"/>
+            <option name="label.name" value="label.holidays"/>
+        </field>
+    </model>
+
+    <model name="OpeningHour" entryClass="ride\app\orm\openingschedule\entry\OpeningHourEntry">
+        <field name="weekday" type="integer">
+            <option name="label.name" value="label.weekday"/>
+            <option name="scaffold.form.options.json" value="{&quot;1&quot;:&quot;label.day.monday&quot;,&quot;2&quot;:&quot;label.day.tuesday&quot;,&quot;3&quot;:&quot;label.day.wednesday&quot;,&quot;4&quot;:&quot;label.day.thursday&quot;,&quot;5&quot;:&quot;label.day.friday&quot;,&quot;6&quot;:&quot;label.day.saturday&quot;,&quot;7&quot;:&quot;label.day.sunday&quot;}"/>
+            <option name="scaffold.form.type" value="select"/>
+            <validation name="required"/>
+        </field>
+
+        <field name="from" type="time">
+            <option name="label.name" value="label.time.from" />
+            <validation name="required" />
+        </field>
+
+        <field name="to" type="time">
+            <option name="label.name" value="label.time.to"/>
+            <validation name="required"/>
+        </field>
+    </model>
+
+    <model name="Holiday" entryClass="ride\app\orm\openingschedule\entry\HolidayEntry">
+        <field name="from" type="date">
+            <option name="label.name" value="label.date.from" />
+            <validation name="required" />
+        </field>
+
+        <field name="to" type="date">
+            <option name="label.name" value="label.date.to"/>
+            <option name="label.description" value="label.date.to.description" />
+        </field>
+    </model>
+
+</models>

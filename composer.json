@@ -1,0 +1,19 @@
+{
+    "name": "ride/app-orm-opening-schedule",
+    "description": "Openinghours and holidays which can be coupled to models",
+    "license": "MIT",
+    "version": "0.1.0",
+    "authors": [
+        {
+            "name": "Brent Roose",
+            "email": "brent@statik.be"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-0": {
+            "ride\\app\\orm\\openingschedule": ["src/"]
+        }
+    }
+}
