@@ -1,6 +1,6 @@
 {
     "name": "ride/app-orm-opening-schedule",
-    "description": "Openinghours and holidays which can be coupled to models",
+    "description": "Opening schedule module for opening hours and holidays",
     "license": "MIT",
     "version": "0.1.0",
     "authors": [
