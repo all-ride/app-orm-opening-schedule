@@ -2,6 +2,12 @@
 <models>
 
     <model name="OpeningSchedule" entryClass="ride\app\orm\openingschedule\entry\OpeningScheduleEntry">
+        <field name="name" type="string">
+            <option name="label.name" value="label.schedule.name"/>
+            <option name="label.description" value="label.schedule.description"/>
+            <validation name="required" />
+        </field>
+
         <field name="isEnabled" type="boolean" default="1">
             <option name="label.name" value="label.none"/>
             <option name="label.description" value="label.enabled"/>
@@ -16,6 +22,12 @@
             <option name="scaffold.form.type" value="collection"/>
             <option name="label.name" value="label.holidays"/>
         </field>
+
+        <format name="title">{name}</format>
+
+        <option name="scaffold.expose" value="true" />
+        <option name="scaffold.title" value="title.openingschedule"/>
+        <option name="rest.expose" value="true" />
     </model>
 
     <model name="OpeningHour" entryClass="ride\app\orm\openingschedule\entry\OpeningHourEntry">
