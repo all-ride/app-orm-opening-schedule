@@ -8,7 +8,7 @@
         </field>
 
         <field name="isEnabled" type="boolean" default="1">
-            <option name="label.name" value="label.none"/>
+            <option name="label.name" value="label.enable"/>
             <option name="label.description" value="label.enabled"/>
         </field>
         <field name="openingHours" model="OpeningHour" relation="hasMany" relationOrder="{openingHour.weekday} ASC, {openingHour.from} ASC">
