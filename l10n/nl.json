@@ -9,12 +9,15 @@
     "label.day.thursday": "Donderdag",
     "label.day.tuesday": "Dinsdag",
     "label.day.wednesday": "Woensdag",
+    "label.enable": "Inschakelen",
     "label.holidays": "Vakantiedagen",
-    "label.none": " ",
     "label.openingHours": "Openingsuren",
     "label.openingSchedule": "Planning",
     "label.optional": "Optioneel",
+    "label.schedule.name": "Naam",
+    "label.schedule.description": "Een naam om deze planning te herkennen",
     "label.time.from": "Begin tijdstip",
     "label.time.to": "Eind tijdstip",
-    "label.weekday": "Dag"
+    "label.weekday": "Dag",
+    "title.openingschedule" : "Openings planning"
 }

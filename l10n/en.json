@@ -9,12 +9,15 @@
     "label.day.thursday": "Thursday",
     "label.day.tuesday": "Tuesday",
     "label.day.wednesday": "Wednesday",
+    "label.enable": "Enable",
     "label.holidays": "Holidays",
-    "label.none": " ",
     "label.openingHours": "Openinghours",
     "label.openingSchedule": "Schedule",
     "label.optional": "Optional",
+    "label.schedule.name": "Name",
+    "label.schedule.description": "A name by which this schedule can be recognized",
     "label.time.from": "Begin time",
     "label.time.to": "End time",
-    "label.weekday": "Day"
+    "label.weekday": "Day",
+    "title.openingschedule" : "Opening schedule"
 }
