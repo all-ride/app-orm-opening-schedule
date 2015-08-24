@@ -6,7 +6,6 @@
             <option name="label.description" value="label.schedule.description"/>
             <validation name="required" />
         </field>
-
         <field name="isEnabled" type="boolean" default="1">
             <option name="label.name" value="label.enable"/>
             <option name="label.description" value="label.enabled"/>
