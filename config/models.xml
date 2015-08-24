@@ -19,9 +19,7 @@
             <option name="scaffold.form.type" value="collection"/>
             <option name="label.name" value="label.holidays"/>
         </field>
-
         <format name="title">{name}</format>
-
         <option name="scaffold.expose" value="true" />
         <option name="scaffold.title" value="title.openingschedule"/>
         <option name="rest.expose" value="true" />
