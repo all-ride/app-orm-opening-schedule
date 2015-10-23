@@ -1,7 +1,7 @@
 # Ride app-orm-opening-schedule
 
-This module provides a schedule model which can be hooked to any existing model. 
-It adds opening hours and holiday support. 
+This module provides a schedule model which can be hooked to any existing model.
+It adds opening hours and holiday support.
 There are some helper methods to easily look up opening hours and holidays.
 
 ### Example
