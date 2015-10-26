@@ -102,6 +102,24 @@ class OpeningScheduleEntry extends OrmOpeningScheduleEntry {
     }
 
     /**
+     * Get sorted OpeningHours by weekday
+     *
+     * @return array
+     */
+    public function getSortedOpeningHoursByWeekday() {
+        $openingHours = $this->getOpeningHours();
+
+        $sorted = [];
+        foreach ($openingHours as $openingHour) {
+            $sorted[$openingHour->getWeekday()][] = $openingHour;
+        }
+        ksort($sorted);
+
+        return $sorted;
+    }
+
+
+    /**
      * Get a Holiday by timestamp
      *
      * @param int $timestamp Timestamp to check
@@ -157,13 +175,13 @@ class OpeningScheduleEntry extends OrmOpeningScheduleEntry {
      * @param array $openingHours
      * @return null
      */
-     public function setOpeningHours(array $openingHours = array()) {
-         $this->openingHours = $openingHours;
+    public function setOpeningHours(array $openingHours = array()) {
+        $this->openingHours = $openingHours;
 
-         if ($this->entryState === self::STATE_CLEAN) {
-             $this->entryState = self::STATE_DIRTY;
-         }
-     }
+        if ($this->entryState === self::STATE_CLEAN) {
+            $this->entryState = self::STATE_DIRTY;
+        }
+    }
 
     /**
      * Override the setHolidays method from ride\application\orm\entry\OpeningScheduleEntry because of nested form collections
@@ -171,11 +189,11 @@ class OpeningScheduleEntry extends OrmOpeningScheduleEntry {
      * @param array $holidays
      * @return null
      */
-     public function setHolidays(array $holidays = array()) {
-         $this->holidays = $holidays;
+    public function setHolidays(array $holidays = array()) {
+        $this->holidays = $holidays;
 
-         if ($this->entryState === self::STATE_CLEAN) {
-             $this->entryState = self::STATE_DIRTY;
-         }
-     }
+        if ($this->entryState === self::STATE_CLEAN) {
+            $this->entryState = self::STATE_DIRTY;
+        }
+    }
 }
