@@ -71,9 +71,11 @@ class OpeningScheduleEntry extends OrmOpeningScheduleEntry {
         $result = false;
 
         $openingHours = $this->getSortedOpeningHours();
+
         foreach($openingHours as $openingHour) {
-            if (!$openingHour->isCurrent()) {
+            if (!$openingHour->isCurrent() && $openingHour->getEnd()->getTimestamp() > time()) {
                 $result = $openingHour;
+                break;
             }
         }
 
