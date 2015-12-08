@@ -71,9 +71,11 @@ class OpeningScheduleEntry extends OrmOpeningScheduleEntry {
         $result = false;
 
         $openingHours = $this->getSortedOpeningHours();
+
         foreach($openingHours as $openingHour) {
-            if (!$openingHour->isCurrent()) {
+            if (!$openingHour->isCurrent() && $openingHour->getEnd()->getTimestamp() > time()) {
                 $result = $openingHour;
+                break;
             }
         }
 
@@ -98,6 +100,24 @@ class OpeningScheduleEntry extends OrmOpeningScheduleEntry {
 
         return $sorted;
     }
+
+    /**
+     * Get sorted OpeningHours by weekday
+     *
+     * @return array
+     */
+    public function getSortedOpeningHoursByWeekday() {
+        $openingHours = $this->getOpeningHours();
+
+        $sorted = [];
+        foreach ($openingHours as $openingHour) {
+            $sorted[$openingHour->getWeekday()][] = $openingHour;
+        }
+        ksort($sorted);
+
+        return $sorted;
+    }
+
 
     /**
      * Get a Holiday by timestamp
@@ -155,13 +175,13 @@ class OpeningScheduleEntry extends OrmOpeningScheduleEntry {
      * @param array $openingHours
      * @return null
      */
-     public function setOpeningHours(array $openingHours = array()) {
-         $this->openingHours = $openingHours;
+    public function setOpeningHours(array $openingHours = array()) {
+        $this->openingHours = $openingHours;
 
-         if ($this->entryState === self::STATE_CLEAN) {
-             $this->entryState = self::STATE_DIRTY;
-         }
-     }
+        if ($this->entryState === self::STATE_CLEAN) {
+            $this->entryState = self::STATE_DIRTY;
+        }
+    }
 
     /**
      * Override the setHolidays method from ride\application\orm\entry\OpeningScheduleEntry because of nested form collections
@@ -169,11 +189,11 @@ class OpeningScheduleEntry extends OrmOpeningScheduleEntry {
      * @param array $holidays
      * @return null
      */
-     public function setHolidays(array $holidays = array()) {
-         $this->holidays = $holidays;
+    public function setHolidays(array $holidays = array()) {
+        $this->holidays = $holidays;
 
-         if ($this->entryState === self::STATE_CLEAN) {
-             $this->entryState = self::STATE_DIRTY;
-         }
-     }
+        if ($this->entryState === self::STATE_CLEAN) {
+            $this->entryState = self::STATE_DIRTY;
+        }
+    }
 }
