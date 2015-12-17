@@ -20,7 +20,7 @@ class OpeningScheduleEntry extends OrmOpeningScheduleEntry {
         $filtered = [];
 
         foreach ($openingHours as $openingHour) {
-            if ($openingHour->getWeekday() === $day) {
+            if ($openingHour->getWeekday() == $day) {
                 $filtered[$openingHour->getFrom()] = $openingHour;
             }
         }
