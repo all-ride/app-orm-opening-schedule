@@ -16,6 +16,7 @@
     "label.enable": "Enable",
     "label.holiday.until" : "Closed until %date% %time%",
     "label.holidays": "Holidays",
+    "label.on.request": "On request",
     "label.openingHours": "Openinghours",
     "label.openingSchedule": "Schedule",
     "label.optional": "Optional",
