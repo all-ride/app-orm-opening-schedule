@@ -196,4 +196,16 @@ class OpeningScheduleEntry extends OrmOpeningScheduleEntry {
             $this->entryState = self::STATE_DIRTY;
         }
     }
+
+    /**
+     * Check if is enabled
+     * @return boolean
+     */
+    public function isEnabled() {
+        if (method_exists('ride\application\orm\entry\OpeningScheduleEntry', 'isEnabled')) {
+            return parent::isEnabled();
+        }
+
+        return true;
+    }
 }
