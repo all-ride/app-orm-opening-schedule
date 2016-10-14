@@ -4,7 +4,7 @@ This module provides a schedule model which can be hooked to any existing model.
 It adds opening hours and holiday support.
 There are some helper methods to easily look up opening hours and holidays.
 
-### Example
+## Example
 
 ```xml
 <!-- application/config/models.xml -->
@@ -61,4 +61,18 @@ There are some helper methods to easily look up opening hours and holidays.
 
 <!-- Get an OpeningHour by timestamp -->
 {$h = $schedule->getHoliday($timestamp)}
+```
+
+## Related Modules 
+
+- [ride/app](https://github.com/all-ride/ride-app)
+- [ride/app-orm](https://github.com/all-ride/ride-app-orm)
+- [ride/lib-orm](https://github.com/all-ride/ride-lib-orm)
+
+## Installation
+
+You can use [Composer](http://getcomposer.org) to install this application.
+
+```
+composer require ride/app-orm-opening-schedule
 ```
