@@ -41,7 +41,7 @@ class OpeningScheduleEntry extends OrmOpeningScheduleEntry {
 
         $openingHours = $this->getOpeningHoursByDay(date('N', $timestamp));
         foreach($openingHours as $openingHour) {
-            if ($openingHour->getStart()->getTimestamp() <= $timestamp && $timestamp <= $openingHour->getEnd()->getTimestamp()) {
+            if ($openingHour->getStart()->getTimestamp() <= $timestamp && $timestamp <= $openingHour->getEnd()->getTimestamp() && !$openingHour->isOnRequest()) {
                 return $openingHour;
             }
         }
@@ -73,7 +73,7 @@ class OpeningScheduleEntry extends OrmOpeningScheduleEntry {
         $openingHours = $this->getSortedOpeningHours();
 
         foreach($openingHours as $openingHour) {
-            if (!$openingHour->isCurrent() && $openingHour->getEnd()->getTimestamp() > time()) {
+            if (!$openingHour->isCurrent() && $openingHour->getEnd()->getTimestamp() > time() && !$openingHour->isOnRequest()) {
                 $result = $openingHour;
                 break;
             }
