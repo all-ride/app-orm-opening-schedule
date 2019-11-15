@@ -34,14 +34,18 @@ class OpeningScheduleEntry extends OrmOpeningScheduleEntry {
      * @param int $timestamp Timestamp to check
      * @return mixed
      */
-    public function getOpeningHour($timestamp) {
+    public function getOpeningHour($timestamp, $includeOnRequest = false) {
         if (!$this->isEnabled() || $this->getCurrentHoliday()) {
             return false;
         }
 
         $openingHours = $this->getOpeningHoursByDay(date('N', $timestamp));
         foreach($openingHours as $openingHour) {
-            if ($openingHour->getStart()->getTimestamp() <= $timestamp && $timestamp <= $openingHour->getEnd()->getTimestamp() && !$openingHour->isOnRequest()) {
+            if ($openingHour->getStart()->getTimestamp() <= $timestamp && $timestamp <= $openingHour->getEnd()->getTimestamp()) {
+                if (!$includeOnRequest && $openingHour->isOnRequest()) {
+                    continue;
+                }
+
                 return $openingHour;
             }
         }
@@ -54,8 +58,8 @@ class OpeningScheduleEntry extends OrmOpeningScheduleEntry {
      *
      * @return mixed
      */
-    public function getCurrentOpeningHour() {
-        return $this->getOpeningHour(time());
+    public function getCurrentOpeningHour($includeOnRequest = false) {
+        return $this->getOpeningHour(time(), $includeOnRequest);
     }
 
     /**
@@ -63,7 +67,7 @@ class OpeningScheduleEntry extends OrmOpeningScheduleEntry {
      *
      * @return mixed
      */
-    public function getNextOpeningHour() {
+    public function getNextOpeningHour($includeOnRequest = false) {
         if (!$this->isEnabled()) {
             return false;
         }
@@ -73,8 +77,13 @@ class OpeningScheduleEntry extends OrmOpeningScheduleEntry {
         $openingHours = $this->getSortedOpeningHours();
 
         foreach($openingHours as $openingHour) {
-            if (!$openingHour->isCurrent() && $openingHour->getEnd()->getTimestamp() > time() && !$openingHour->isOnRequest()) {
+            if (!$openingHour->isCurrent() && $openingHour->getEnd()->getTimestamp() > time()) {
+                if (!$includeOnRequest && $openingHour->isOnRequest()) {
+                    continue;
+                }
+
                 $result = $openingHour;
+
                 break;
             }
         }
